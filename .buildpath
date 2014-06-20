@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="demos/blog"/>
+	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+	<buildpathentry kind="src" path="framework"/>
+	<buildpathentry excluding="models/" kind="src" path="momee/protected"/>
+	<buildpathentry kind="src" path="momee/protected/models"/>
+	<buildpathentry kind="src" path="requirements"/>
+</buildpath>
