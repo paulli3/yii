@@ -1,0 +1,9 @@
+2014/06/26 11:25:34 [error] [pay] -------->notify_recurring_payment<-------gid=800001&sid=s195&pid=7
+in D:\code\php\admin\yii\login\protected\controllers\CpsController.php (48)
+in D:\code\php\admin\yii\login\index.php (19)
+2014/06/26 11:26:48 [error] [pay] -------->notify_recurring_payment<-------gid=800001&sid=s195&pid=7
+in D:\code\php\admin\yii\login\protected\controllers\CpsController.php (48)
+in D:\code\php\admin\yii\login\index.php (19)
+2014/06/26 11:27:19 [error] [pay] REQ=>$url\n RET=>$ret\ngid=800001&sid=s195&pid=7
+in D:\code\php\admin\yii\login\protected\controllers\CpsController.php (48)
+in D:\code\php\admin\yii\login\index.php (19)

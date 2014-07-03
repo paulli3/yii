@@ -1,0 +1,2 @@
+<input id="tg_url" style="width:500px;border:1px solid #666;padding:5px;" type="text" value="<?php echo $url;?>" readonly>
+<input type="hidden" name="linkid" value="<?php echo $linkid;?>" id="linkid" readonly/>
