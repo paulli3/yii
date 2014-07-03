@@ -13,6 +13,11 @@ class TableRight extends CActiveRecord
 		return parent::model($className);
 	}
 
+	
+	public function test()
+	{
+		var_dump($this->getDbConnection()->connectionString);
+	}
 	/**
 	 * @return string the associated database table name
 	 */

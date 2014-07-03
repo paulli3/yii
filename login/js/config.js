@@ -833,6 +833,9 @@ function hostconvert(url) {
 	return url;
 }
 function ajaxget(url, showid, waitid, loading, display, recall) {
+	
+	
+	
 	waitid = typeof waitid == 'undefined' || waitid === null ? showid : waitid;
 	var x = new Ajax();
 	x.setLoading(loading);

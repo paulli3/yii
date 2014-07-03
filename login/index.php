@@ -1,12 +1,10 @@
 <?php
-error_reporting(0);
+error_reporting(7);
 // change the following paths if necessary
 $pwd = dirname(__FILE__);
 $yii=$pwd.'/../framework/yii.php';
 $config=$pwd.'/protected/config/main.php';
 require_once $pwd.'/protected/function.common.php';
-
-$server['172.31.22.195'] = 1; //生产环境下
 define('IS_PRODUCT', $server[$_SERVER['SERVER_ADDR']]);
 error_reporting(IS_PRODUCT ? 0 : 7);
 // remove the following lines when in production mode

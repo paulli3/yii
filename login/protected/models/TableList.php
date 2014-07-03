@@ -19,7 +19,7 @@ class TableList extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{list}}';
+		return '{{user.list}}';
 	}
 	/**
 	 * 返回主键

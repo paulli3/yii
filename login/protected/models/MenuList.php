@@ -17,6 +17,19 @@ class MenuList
 					array('label'=>'角色编辑','link'=>"user/roleedit"),
 				),
 			),
+			array(
+				'label'=>'CPS管理',
+				'menu' => array(
+					array('label'=>'注册查询','link'=>"cps/userlist"),
+					array('label'=>'充值查询','link'=>"cps/paylist"),
+					array('label'=>'提取链接','link'=>"cps/getpage"),
+					array('label'=>'提取链接列表','link'=>"cps/GetPageList"),
+					array('label'=>'充值排行榜','link'=>"cps/paytop"),
+					array('label'=>'首次充值','link'=>"cps/firstpay"),
+					array('label'=>'绑定链接','link'=>"cps/binld"),
+					array('label'=>'内部充值管理','link'=>"cps/privatepay"),
+				),
+			),
 //			array(
 //				'label'=>'aaaaaaaaaaa',
 //				'menu' => array(

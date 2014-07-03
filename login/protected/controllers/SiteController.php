@@ -2,6 +2,7 @@
 
 class SiteController extends Controller
 {
+	public $layout='//layouts/cps/cps';
 	
 	public function init()
 	{
@@ -24,23 +25,34 @@ class SiteController extends Controller
 	
 	public function actionIndex()
 	{
-		$this->render('indexView',array('leftMenu'=>MenuList::ParseLeftMenuToHTML()));
+		
+		
+		
+		
 	}
 	
 	public function actionLogin()
-	{
+	{	
+		$this->layout='//layouts/blank';
+		if (!user()->isGuest){
+			$this->render('loginedcps',array('model'=>$model));
+			app()->end();
+		}
+		
 		$model = TableAdmin::model();
 		$model->attributes=$_POST['data'];
 		if ($_POST['data'] && $model->validate()){
 			if ($model->login()){
-				$nexturl = $_REQUEST['next'] ? urldecode($_REQUEST['next']) : app()->request->getHttpReferer();
-				if (strpos($nexturl, 'loginout')!==false){$nexturl=url('site/index');}
+				$nexturl = $_REQUEST['next'] ;
+				$nexturl = $_REQUEST['next'] ? urldecode($_REQUEST['next']) : $_SERVER['HTTP_REFERER'];
+				if (strpos($nexturl, 'loginout')!==false){$nexturl=url('cps/index');}
+				
 				showAutoRediect('login success',$nexturl,array('{USER}'=>user()->name));
 			}else{
 				showpop('user/passworld error');
 			}
 		}else {
-			$this->render('login',array('model'=>$model));	
+			$this->render('logincps',array('model'=>$model));	
 		}
 	}
 	
