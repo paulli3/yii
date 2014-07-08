@@ -27,6 +27,19 @@ class TableLinks extends CActiveRecord
 	}
 	
 	/**
+	 * 通过用户id，获取用户的所有连接
+	 * @param unknown_type $uid 
+	 */
+	public function getLinkIDByUserID($uid)
+	{
+		$data = $this->findAll("uid=:uid",array(":uid"=>$uid));
+		foreach ($data as $k => $v)
+		{
+			$pid[] = $v['id'];
+		}
+		return $pid;
+	}
+	/**
 	 * 返回主键
 	 * @see CActiveRecord::primaryKey()
 	 */
@@ -82,10 +95,18 @@ class TableLinks extends CActiveRecord
 	{
 		$url = $this->getPageLinkGid($gid);
 		//$realsid = $realsid ? $realsid : 0; 
-		if (strlen($sid) == 0){$sid="s0";}
-		$table = new TableCps();
-		$sids = $table->getServerById($gid);
-		$realsid = $table->getRealServerIdByShortName($sid, $sids);
+		if (strlen($sid) == 0){
+			$sid="s0";
+		}
+		if ($sid != "s0"){
+			$table = new TableCps();
+			$sids = $table->getServerById($gid);
+			$realsid = $table->getRealServerIdByShortName($sid, $sids);	
+		}else{
+			$realsid = 0;
+		}
+		
+		
 		
 		$d = $this->find("gid=:gid and sid=:sid and pid=:pid", array(':gid'=>$gid,':sid'=>$realsid,':pid'=>$pageType));
 		if ($d){

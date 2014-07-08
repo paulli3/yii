@@ -20,7 +20,7 @@ $this->styles = array(
 			</tr>
           <tr class="<?php echo $model->getError('passWd') ? 'error' : '';?>">
 				<td align="right" class="f14px" width="50">密码</td><td>
-				<?php echo CHtml::textField("data[passWd]",$model->passWd ? $model->passWd : '密码' , array('class'=>'input1'))?>
+				<?php echo CHtml::passwordField("data[passWd]",$model->passWd ? $model->passWd : '' , array('class'=>'input1'))?>
 				<span><?php echo $model->getError('passWd');?></span> </td>
 			</tr>
           

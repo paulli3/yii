@@ -96,7 +96,6 @@ class TableCps extends CModel
 	 */
 	public function getRealServerIdByShortName($shortName,$servers)
 	{
-		var_dump($shortName);
 			foreach ($servers as $k => $v){
 				if ($v['server_short_name'] == $shortName)
 				{

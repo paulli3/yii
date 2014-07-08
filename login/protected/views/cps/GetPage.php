@@ -30,14 +30,19 @@
 
             <p> 进入游戏：
 
-              <?php 
+              <?php
+              
 				echo CHtml::listBox('game', $select, $gameList, array('onchange'=>'page.selectGameID(this.value);ajaxget("'.url('cps/GetServersByGame').'?gid="+this.value,"serverlistBox")','size'=>1));
 			?>
 
               &nbsp; 可选，注册后进入的游戏 </p>
 
             <p> 对应区服：
-			 <span id="serverlistBox"></span>
+			 <span id="serverlistBox">
+			 	<select name="serverID" id="serverID">
+			 		<option value="s0">----all server---</option>
+			 	</select>
+			 </span>
 
               &nbsp;可选，默认进该游戏最新区</p>
 
@@ -100,6 +105,7 @@ function copyCode(a){
       </div>
       
 <script>
+
 var page = {
 	pageID 		: '',
 	pageUrl 	: '',
@@ -126,4 +132,6 @@ var page = {
 		//$("#link").val(url);
 	}	
 };
+page.gameID=document.getElementById('game').value;
+page.serverID=document.getElementById('serverID').value;
 </script>

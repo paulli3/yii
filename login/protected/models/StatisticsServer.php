@@ -34,14 +34,21 @@ class StatisticsServer extends CActiveRecord
  	{
  		list($d['uid'],$d['gameid'],$d['serverid'],$d['amount'],$d['remotetime'],$d['username'],$d['orderid'],$d['paytype']) = explode("|", $data['value']);
  		
+ 		
+ 		
  		$recode = TablePay::model()->find('orderid=:orderid',array(":orderid"=>$d['orderid']));
  		if ($recode){
  			return; //确保入库的时候一次只入一个
  		}
  		
- 		$tmp = TableUserlogin::model()->findByPk($d['uid']);
+ 		$model = TableUserlogin::model();
+ 		$userRecode = $model->findByPk($d['uid']);
+ 		if (!$userRecode){//如果不存在这个用户，退出
+ 			return ;
+ 		}
+ 		
 
- 		$d['linkid'] =$tmp->linkid; 
+ 		$d['linkid'] =$userRecode->linkid; 
  		$d['time'] = time();
  		TablePay::model()->setIsNewRecord(1);
  		TablePay::model()->attributes = $d ;

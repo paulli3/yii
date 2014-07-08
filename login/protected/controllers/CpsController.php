@@ -13,7 +13,7 @@ class CpsController extends Controller
 	
 	public function beforeAction($action){
 		$allow = array(
-			'api'
+			'api','page'
 		);
 		if (!user()->isGuest || in_array(strtolower($action->id), $allow)){return true;}
 		
@@ -52,14 +52,18 @@ class CpsController extends Controller
 			$data['servers'][$v['id']]= $s;
 			$data['games'][$v['id']] = $v['product_name'];
 		}
-	
+		
+		$linkids = TableLinks::model()->getLinkIDByUserID(user()->getId());
+		
+		
 		$criteria = new CDbCriteria();        
+		$criteria->addInCondition('linkid', $linkids); 
 		$count = TablePay::model()->count($criteria);                 
 		$pager = new CPagination($count);         
 		$pager->pageSize = 15;    
 		$pager->applyLimit($criteria);          
 		$data['paylist'] = TablePay::model()->findAll($criteria);        
-		
+		$data['pages'] = $pager;
 		$this->render("PayList",$data);
 	}
 	/**
@@ -73,7 +77,7 @@ class CpsController extends Controller
 		$pager->pageSize = 15;    
 		$pager->applyLimit($criteria);          
 		$data['userlist'] = TableUserlogin::model()->findAll($criteria);        
-		
+		$data['pages'] = $pager;
 		$this->render("UserList",$data);
 	}
 	
@@ -135,7 +139,9 @@ class CpsController extends Controller
 	}
 	
 	
-	
+	/**
+	 * 根据游戏用户id获取serverid
+	 */
 	public function actionGetServersByGame()
 	{
 		$gid = app()->request->getParam('gid');
@@ -144,7 +150,7 @@ class CpsController extends Controller
 		
 		$data = $model->getServerById($gid);
 		
-		
+		$d['s0'] = "----all server---";
 		foreach ($data as $k => $v){
 			$d[$v['server_short_name']] = $v['server_name'];//$v['server_short_name']
 		}
@@ -198,7 +204,7 @@ class CpsController extends Controller
 		$model = new TableCps();
 		
 		if (app()->request->getquery('post'))
-		{
+		{ 
 			$g = app()->request->getParam('g');
 			$s = app()->request->getParam('s');
 			$p = app()->request->getParam('p',0); 

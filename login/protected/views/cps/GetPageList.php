@@ -24,7 +24,7 @@ if ($list):
 	<?php foreach ($list as $k => $v):?>
 	<tr>
 		<td><?php echo $games[$v['gid']];?></td>
-		<td><?php echo $servers[$v['gid']][$v['sid']];//$servers[$v['gid']][$v['sid']];?></td>
+		<td><?php echo $v['sid'] ? $servers[$v['gid']][$v['sid']] : ($v['sid']==0 ? '全部服务器' : $v['sid']);//$servers[$v['gid']][$v['sid']];?></td>
 		
 		<td><a href="<?php echo $v['link'];?>" target="blank"><?php echo $v['link'];?></a></td>
 <!--		<td><?php echo $v['pid'];?></td>-->

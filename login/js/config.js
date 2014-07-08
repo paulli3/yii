@@ -1,5 +1,15 @@
 //Array.prototype.forEach=function(cb){if(typeof cb!='function'){throw new TypeError()};for(var i=0;i!=this.length;++i){cb.call(this,i,this[i])}};
 //Object.prototype.forEach=function(cb){for(var i in this){if(this.hasOwnProperty(i) && typeof cb=='function')cb(i,this[i])}}
+/*
+ * 需要定义
+ * CONFIG = {
+		MEDIA : '',
+		IMGDIR : '/imgs/',
+		'SITEURL' : '',
+}
+IMGDIR = CONFIG.IMGDIR;
+才能运行
+ */
 var BROWSER = {};
 var USERAGENT = navigator.userAgent.toLowerCase();
 browserVersion({'ie':'msie','firefox':'','chrome':'','opera':'','safari':'','mozilla':'','webkit':'','maxthon':'','qq':'qqbrowser','rv':'rv'});

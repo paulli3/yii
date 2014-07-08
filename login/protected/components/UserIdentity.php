@@ -38,6 +38,7 @@ class UserIdentity extends CUserIdentity
 				}
 				$rightStr = rtrim($rightStr,'|');
 				$this->setState('rightCode', $rightStr);
+			//	$this->setState('info',$record->);
 				$this->errorCode=self::ERROR_NONE;
 			}			
 		}

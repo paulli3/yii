@@ -13,6 +13,7 @@ _OPT.extend('pop',function(){
 			if (this.hasInit['pop1'] == undefined)
 			{
 				_OPT.load.appendcss("http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css");
+				//http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css
 				var css = "div.pop1 .ui-dialog-title{padding:0;background:0;}div.pop1 .ui-dialog-bg{display:none;}div.ui-widget-overlay{display:none;}";
 				css += "div.pop1 .ui-dialog-titlebar-close span.ui-icon-closethick{display:block;}";
 				css += "div.pop1 .ui-dialog-titlebar-close{background:none} div.pop1 .ui-state-hover{padding:0;margin:0;top:30%}";
