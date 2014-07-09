@@ -73,8 +73,8 @@
     <!--主要内容 结束--></div>
 </div>
 <div class="footer">
-  <p><a href="http://tg.1797wan.com/index.php/helps/show/16" target="_blank">联系我们</a> - <a href="http://tg.1797wan.com/index.php/news/show/19" target="_blank">新手上路</a> - <a href="http://tg.1797wan.com/#" target="_blank">极致点击推广中心首页</a></p>
-  <p><a href="http://7433.com" target="_blank">中联畅想</a>版权所有 ©2008-2012 &nbsp; 京ICP备13042668号&nbsp; <script src="stat.php" language="JavaScript"></script><script src="cnzz_core.php" charset="utf-8" type="text/javascript"></script><a href="http://tg.1797wan.com/#" target="_blank" title="站长统计">站长统计</a></p>
+  
+  <p><a href="http://7433.com" target="_blank">中联畅想</a>版权所有 ©2008-2012 &nbsp; </p>
   <div class="blank24"></div>
 </div>
 <script>
