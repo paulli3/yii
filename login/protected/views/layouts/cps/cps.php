@@ -49,9 +49,17 @@
         <li class="">
           <h3><a href="<?php echo url('cps/firstpay');?>" onclick="load(this.href);return false;" >首冲</a></h3>
         </li>
+        <li class="">
+          <h3><a href="<?php echo url('cps/firstpaylist');?>" onclick="load(this.href);return false;" >首冲历史</a></h3>
+        </li>
+        <?php 
+        	if (user()->getName()=='admin'):
+        ?>
 		<li class="">
           <h3><a href="<?php echo url('cps/parseTxT');?>" onclick="load(this.href);return false;" >更新数据</a></h3>
         </li>
+        
+        <?php endif;?>
 	</ul>
       <h2>账号管理</h2>
       <ul>

@@ -5,15 +5,17 @@
  */
 
 // change the following paths if necessary
-$pwd = dirname(__FILE__);
-$yii=dirname(__FILE__).'/../framework/yii.php';
-$config=dirname(__FILE__).'/protected/config/test.php';
+$pwd = dirname(__FILE__)."/../../../";
 $yii=$pwd.'/../framework/yii.php';
+$config=$pwd.'/protected/config/console.php';
+
 
 require_once $pwd.'/protected/function.common.php';
 // remove the following line when in production mode
 defined('YII_DEBUG') or define('YII_DEBUG',true);
+error_reporting(7);
 //require_once $pwd.'/protected/function.common.php';
 require_once($yii);
-Yii::createWebApplication($config)->run();
+
+Yii::createConsoleApplication($config)->run();
 

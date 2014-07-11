@@ -83,7 +83,7 @@ class StatisticsServer extends CActiveRecord
  	 * 数据日志入库的时候,登录的额外操作
  	 * @param $data
  	 */
- 	public function extra_1001($data)
+ 	public static function extra_1001($data)
  	{
  		list($d['uid'],$d['remoteTime'],$d['loginIP']) = explode("|", $data['value']);
  		$d['time'] = time();

@@ -197,7 +197,6 @@ abstract class CCache extends CApplicationComponent implements ICache, ArrayAcce
 	public function add($id,$value,$expire=0,$dependency=null)
 	{
 		Yii::trace('Adding "'.$id.'" to cache','system.caching.'.get_class($this));
-
 		if ($dependency !== null && $this->serializer !== false)
 			$dependency->evaluateDependency();
 

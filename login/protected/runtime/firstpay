@@ -1,0 +1,84 @@
+2014/07/10 11:33:39 [info] [firstpay] 
+REQ=>http://s1.sgh.gate.7433.com/exchange.html?gkey=sgh&skey=s1&platform=7433&order_id=7433CPS|2014JulThu113336370425&uid=&coins=10&money=1&time=1404963216&sign=a4185dd7a9b5a64a88caceb02036db3e
+RET=>ERR_TIMEOUT
+
+in D:\code\php\admin\yii\login\protected\pay\paybase.php (52)
+in D:\code\php\admin\yii\login\protected\pay\paysgh.php (22)
+in D:\code\php\admin\yii\login\protected\pay\PayAdapter.php (21)
+2014/07/10 12:40:20 [info] [firstpay] 
+REQ=>http://s1.sgh.gate.7433.com/exchange.html?gkey=sgh&skey=s1&platform=7433&order_id=7433CPS|2014JulThu124018931710asd123&uid=asd123&coins=10&money=1&time=1404967218&sign=03cf6513711be2609f5d7a1e0aa5de46
+RET=>{"errno":-3,"errmsg":"\u7528\u6237\u4e0d\u5b58\u5728","data":null}
+
+in D:\code\php\admin\yii\login\protected\pay\paybase.php (52)
+in D:\code\php\admin\yii\login\protected\pay\paysgh.php (22)
+in D:\code\php\admin\yii\login\protected\pay\PayAdapter.php (21)
+2014/07/10 12:43:57 [info] [firstpay] 
+REQ=>http://s1.sgh.gate.7433.com/exchange.html?gkey=sgh&skey=s1&platform=7433&order_id=7433CPS|2014JulThu124355026727asdsd1&uid=asdsd1&coins=10&money=1&time=1404967435&sign=525ec076a9e44a239a4f5c17c7ebc4a7
+RET=>{"errno":-3,"errmsg":"\u7528\u6237\u4e0d\u5b58\u5728","data":null}
+
+in D:\code\php\admin\yii\login\protected\pay\paybase.php (52)
+in D:\code\php\admin\yii\login\protected\pay\paysgh.php (22)
+in D:\code\php\admin\yii\login\protected\pay\PayAdapter.php (21)
+2014/07/10 12:49:05 [info] [firstpay] 
+REQ=>http://s1.sgh.gate.7433.com/exchange.html?gkey=sgh&skey=s1&platform=7433&order_id=7433CPS|2014JulThu124903726443sfdsf&uid=sfdsf&coins=10&money=1&time=1404967743&sign=749fd829859ef5f3d8961ee142354603
+RET=>{"errno":-3,"errmsg":"\u7528\u6237\u4e0d\u5b58\u5728","data":null}
+
+in D:\code\php\admin\yii\login\protected\pay\paybase.php (52)
+in D:\code\php\admin\yii\login\protected\pay\paysgh.php (22)
+in D:\code\php\admin\yii\login\protected\pay\PayAdapter.php (21)
+2014/07/10 12:53:11 [info] [firstpay] 
+REQ=>http://s1.sgh.gate.7433.com/exchange.html?gkey=sgh&skey=s1&platform=7433&order_id=7433CPS|2014JulThu125310747743sfdsf&uid=sfdsf&coins=10&money=1&time=1404967990&sign=7b957b6c1ab05160cf26cf352d258c66
+RET=>{"errno":-3,"errmsg":"\u7528\u6237\u4e0d\u5b58\u5728","data":null}
+
+in D:\code\php\admin\yii\login\protected\pay\paybase.php (52)
+in D:\code\php\admin\yii\login\protected\pay\paysgh.php (22)
+in D:\code\php\admin\yii\login\protected\pay\PayAdapter.php (21)
+2014/07/10 12:55:21 [info] [firstpay] 
+REQ=>http://s1.sgh.gate.7433.com/exchange.html?gkey=sgh&skey=s1&platform=7433&order_id=7433CPS|2014JulThu125518502298sfdsf&uid=sfdsf&coins=10&money=1&time=1404968118&sign=71390c427b890ca85eb0fbff20e73c46
+RET=>{"errno":-3,"errmsg":"\u7528\u6237\u4e0d\u5b58\u5728","data":null}
+
+in D:\code\php\admin\yii\login\protected\pay\paybase.php (52)
+in D:\code\php\admin\yii\login\protected\pay\paysgh.php (22)
+in D:\code\php\admin\yii\login\protected\pay\PayAdapter.php (21)
+2014/07/10 12:55:46 [info] [firstpay] 
+REQ=>http://s1.sgh.gate.7433.com/exchange.html?gkey=sgh&skey=s1&platform=7433&order_id=7433CPS|2014JulThu125545077749sfdsf&uid=sfdsf&coins=10&money=1&time=1404968145&sign=c038bd1ab03239306ff9bd8d247f0fe9
+RET=>{"errno":-3,"errmsg":"\u7528\u6237\u4e0d\u5b58\u5728","data":null}
+
+in D:\code\php\admin\yii\login\protected\pay\paybase.php (52)
+in D:\code\php\admin\yii\login\protected\pay\paysgh.php (22)
+in D:\code\php\admin\yii\login\protected\pay\PayAdapter.php (21)
+2014/07/10 13:57:56 [info] [firstpay] 
+REQ=>http://s1.sgh.gate.7433.com/exchange.html?gkey=sgh&skey=s1&platform=7433&order_id=7433CPS|2014JulThu015755365637adfadfsad&uid=adfadfsad&coins=10&money=1&time=1404971875&sign=9479ab6b3206e58a4a05dffffd31d998
+RET=>{"errno":-3,"errmsg":"\u7528\u6237\u4e0d\u5b58\u5728","data":null}
+
+in D:\code\php\admin\yii\login\protected\pay\paybase.php (52)
+in D:\code\php\admin\yii\login\protected\pay\paysgh.php (22)
+in D:\code\php\admin\yii\login\protected\pay\PayAdapter.php (21)
+2014/07/10 13:58:46 [info] [firstpay] 
+REQ=>http://s1.sgh.gate.7433.com/exchange.html?gkey=sgh&skey=s1&platform=7433&order_id=7433CPS|2014JulThu015846885709213123123&uid=213123123&coins=10&money=1&time=1404971926&sign=3b50534ffee0e04726ca46ed5a7d73a9
+RET=>{"errno":-3,"errmsg":"\u7528\u6237\u4e0d\u5b58\u5728","data":null}
+
+in D:\code\php\admin\yii\login\protected\pay\paybase.php (52)
+in D:\code\php\admin\yii\login\protected\pay\paysgh.php (22)
+in D:\code\php\admin\yii\login\protected\pay\PayAdapter.php (21)
+2014/07/10 13:58:57 [info] [firstpay] 
+REQ=>http://s1.sgh.gate.7433.com/exchange.html?gkey=sgh&skey=s1&platform=7433&order_id=7433CPS|2014JulThu015857748543213123123&uid=213123123&coins=10&money=1&time=1404971937&sign=08fd57983723059d5bec58644567ac03
+RET=>{"errno":-3,"errmsg":"\u7528\u6237\u4e0d\u5b58\u5728","data":null}
+
+in D:\code\php\admin\yii\login\protected\pay\paybase.php (52)
+in D:\code\php\admin\yii\login\protected\pay\paysgh.php (22)
+in D:\code\php\admin\yii\login\protected\pay\PayAdapter.php (21)
+2014/07/10 14:01:40 [info] [firstpay] 
+REQ=>http://s1.sgh.gate.7433.com/exchange.html?gkey=sgh&skey=s1&platform=7433&order_id=7433CPS|2014JulThu0201392834871584988&uid=1584988&coins=10&money=1&time=1404972099&sign=1719773ad720d6f19e782516189b9ac6
+RET=>{"errno":0,"errmsg":"\u5145\u503c\u6210\u529f","data":{"order_id":"7433CPS|2014JulThu0201392834871584988","uid":"1584988","role_id":"","role_name":"","platform":"7433","gkey":"sgh","skey":"s1","coins":"10","moneys":"1","time":"1404972099"}}
+
+in D:\code\php\admin\yii\login\protected\pay\paybase.php (52)
+in D:\code\php\admin\yii\login\protected\pay\paysgh.php (22)
+in D:\code\php\admin\yii\login\protected\pay\PayAdapter.php (21)
+2014/07/10 14:02:33 [info] [firstpay] 
+REQ=>http://s1.sgh.gate.7433.com/exchange.html?gkey=sgh&skey=s1&platform=7433&order_id=7433CPS|2014JulThu0202338282751584988&uid=1584988&coins=10&money=1&time=1404972153&sign=2ace49ca5cdf8616c6bb826f12e0a348
+RET=>{"errno":0,"errmsg":"\u5145\u503c\u6210\u529f","data":{"order_id":"7433CPS|2014JulThu0202338282751584988","uid":"1584988","role_id":"","role_name":"","platform":"7433","gkey":"sgh","skey":"s1","coins":"10","moneys":"1","time":"1404972153"}}
+
+in D:\code\php\admin\yii\login\protected\pay\paybase.php (52)
+in D:\code\php\admin\yii\login\protected\pay\paysgh.php (22)
+in D:\code\php\admin\yii\login\protected\pay\PayAdapter.php (21)

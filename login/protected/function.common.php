@@ -228,7 +228,7 @@ function showFormHead($action="",$method="get",$htmloption=array()){
 	echo "<form action='$action' method='$method' $html>";
 }
 
-function mydate($time,$format="Y-h-d H:i:s")
+function mydate($time,$format="Y-m-d H:i:s")
 {
 	return date($format,$time);
 }

@@ -7,18 +7,18 @@ class PayAdapter
 	 * 游戏根据游戏，获取model，然后来充值
 	 * @param $gameID
 	 */
-	public function  __construct($gameID)
+	public function  __construct($gameID,$sid)
 	{
 		Yii::import('application.pay.*');
 		$class = $this->_config($gameID);
 		if (!$class ){showError('have no payment type');}
 		$class = "pay$class";
-		$this->obj = new $class;
+		$this->obj = new $class($sid);
 	}
 	
-	public function pay($uid,$orderid="")
+	public function pay($uid,$money=1)
 	{
-		$this->obj->pay($uid,$orderid);
+		return $this->obj->pay($uid,$money);
 	}
 	/**
 	 * 
@@ -28,6 +28,7 @@ class PayAdapter
 	{
 		$config = array(
 			'800001' => 'qj',
+			'800005' => 'sgh',
 		);
 		return $config[$gid];
 	}

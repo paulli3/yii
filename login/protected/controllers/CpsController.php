@@ -13,7 +13,7 @@ class CpsController extends Controller
 	
 	public function beforeAction($action){
 		$allow = array(
-			'api','page'
+			'api','page','parsetxt'
 		);
 		if (!user()->isGuest || in_array(strtolower($action->id), $allow)){return true;}
 		
@@ -31,6 +31,15 @@ class CpsController extends Controller
 		if (!$d)return;
 		StatisticsServer::write($d);
 		
+//		if (strtotime("2014-8-10") > time()){
+//			StatisticsServer::parseTxT();	//8月10号以前都是实时更新
+//		}else{
+//			$key = "one time";
+//			if (!app()->cache->get($key)){//5分支更新一次。
+//				app()->cache->get($key,1,300);
+//				StatisticsServer::parseTxT();
+//			}
+//		}
 	}
 	
 	/**
@@ -71,7 +80,9 @@ class CpsController extends Controller
 	 */
 	public function actionUserList()
 	{
+		$linkids = TableLinks::model()->getLinkIDByUserID(user()->getId());
 		$criteria = new CDbCriteria();        
+		$criteria->addInCondition('linkid', $linkids); 
 		$count = TableUserlogin::model()->count($criteria);                 
 		$pager = new CPagination($count);         
 		$pager->pageSize = 15;    
@@ -135,7 +146,6 @@ class CpsController extends Controller
 	public function actionparseTxT()
 	{
 		StatisticsServer::parseTxT();
-		
 	}
 	
 	
@@ -218,7 +228,7 @@ class CpsController extends Controller
 //				}
 //			}
 			
-			$data = TableLinks::model()->getPageLinkBySidByGameId($g,$s);
+			$data = TableLinks::model()->getPageLinkBySidByGameId($g,$s,user()->getId());
 
 			$this->render('GetPageSubmit',$data);
 			
@@ -253,27 +263,94 @@ class CpsController extends Controller
 		$this->render('TopPay',$data);
 	}
 	
+	
+	/**
+	 * firstpay 首冲列表查看
+	 */
+	public function actionFirstPayList()
+	{
+		$time = app()->request->getparam('time');
+		
+		$data['datalist'] = TableCps::GetFirstPayByTime();
+		
+		$this->render('firstpaylist',$data);
+		
+	}
+	/**
+	 * 单个用户首冲处理
+	 * @param unknown_type $userName
+	 * @param unknown_type $money
+	 * @param unknown_type $payObj
+	 */
+	private function _fistpayprocess($userName,$money,$payObj)
+	{
+		$recode = TableUserlogin::model()->find("name=:name",array(':name'=>$userName));
+		if (!$recode){
+			return array(
+				'uid' 		=> 0,
+				'money' 	=> $money,
+				'username' 	=> $userName,
+				'status' 	=> -100,	//用户不存在
+			);
+		}
+		$uid = $recode->uid;
+		//$payObj = new PayAdapter($gid,$serverID);
+		
+		$flag = $payObj->pay($uid , $money);
+		
+		//TableCps::SetFirstPay();
+		return array(
+			'uid' 		=> $uid,
+			'money' 	=> $money,
+			'username' 	=> $userName,
+			'status' 	=> $flag,
+		);
+	}
 	/**
 	 * 首冲页面
 	 */
 	public function actionFirstPay()
 	{
+	
+		
+		
 		if ($_POST){
 			$users 		= app()->request->getpost('username');
 			$users = explode("\n", $users);
 			$gid	 	= app()->request->getpost('game');
 			$serverID 	= app()->request->getpost('serverID');
 			$password 	= app()->request->getpost('password');
-			showDialog(json_encode($users), '');
+			if ($password != app()->params['firstPayKey']) showDialog('password error!');
+			if (count($users) == 0)	showDialog("user can't be empty!");
+			if ($serverID == 's0')	showDialog("server can't be empty!");
+			if ($gid == 0)	showDialog("game can't be empty!");
 			
-			//$this->render($view);
-			//app()->end();
+			Yii::import('application.pay.*');
+			
+			$payObj = new PayAdapter($gid,$serverID);
+			$retSuccess = $retFail = array();
+			foreach ($users as $username){
+				$tmp = self::_fistpayprocess($username , 1,$payObj);
+				$tmp['gid'] = $gid;
+				$tmp['sid'] = $serverID;
+				$returnall[] = $tmp;
+				$flag=$tmp['status'];
+				if ($flag == paybase::PAY_SUCCESS){
+					$retSuccess[$username]=paybase::PAY_SUCCESS;
+				}else{
+					$retFail[$username]=paybase::PAY_FAIL;
+				}
+			}
+			TableCps::SetFirstPay($returnall);
+			
+			showDialog("successed ".count($retSuccess). " user, fail ".count($retFail)." user");
 		}
 		
 		$model = new TableCps();
 		
 		$game = $model->getAllGame();
 		
+		$g[0] = "---------all game--------";
 		foreach ($game as $k => $v){
 			$g[$v['id']] = $v['product_name'];
 		}
@@ -301,6 +378,8 @@ class CpsController extends Controller
 	public function actionPrivatePay()
 	{
 		$data['selectList'] = $model->getPageType();
+		
+		
 		
 		$this->render('PrivatePay',$data);
 	}

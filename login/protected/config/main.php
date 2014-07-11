@@ -161,6 +161,7 @@ CProfileLogRoute: 在页面的底部显示概述（profiling）信息。
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
+		'firstPayKey'	=>	'12321',
 	),
 );
 

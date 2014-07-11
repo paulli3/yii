@@ -193,6 +193,36 @@ class TableCps extends CModel
 	}
 	
 	
+	/**
+	 * key
+	 * @param unknown_type $time
+	 */
+	private static function _KEY_FIRSTPAY($time="")
+	{
+		$time = $time ? strtotime($time) : time();
+		$time = date("Ymd",($time)); 
+		return "api:FirstPay|$time";
+	}
+	/**
+	 * 获取首冲页面，充值记录
+	 * @param $time
+	 */
+	public static function GetFirstPayByTime($time="")
+	{
+		$key = self::_KEY_FIRSTPAY($time);
+		return app()->cache->get($key);
+	}
+	
+	public static function SetFirstPay($data)
+	{
+		$key = self::_KEY_FIRSTPAY();
+		
+		$d = self::GetFirstPayByTime();
+		if (!is_array($d))$d=array();
+		$arr = array_merge($data,$d);
+		
+		return app()->cache->set($key,$arr);
+	}
 	
 	
 

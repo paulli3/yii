@@ -47,7 +47,7 @@ class SiteController extends Controller
 				$nexturl = $_REQUEST['next'] ? urldecode($_REQUEST['next']) : $_SERVER['HTTP_REFERER'];
 				if (strpos($nexturl, 'loginout')!==false){$nexturl=url('cps/index');}
 				
-				showAutoRediect('login success',$nexturl,array('{USER}'=>user()->name));
+				showAutoRediect('login success',$nexturl,array('{USER}'=>user()->name,'time'=>1));
 			}else{
 				showpop('user/passworld error');
 			}

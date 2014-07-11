@@ -91,7 +91,7 @@ class TableLinks extends CActiveRecord
 	 * @param unknown_type $page
 	 * param $realsid 真实的serverid
 	 */
-	public function getPageLinkBySidByGameId($gid,$sid,$pageType="")
+	public function getPageLinkBySidByGameId($gid,$sid,$uid,$pageType="")
 	{
 		$url = $this->getPageLinkGid($gid);
 		//$realsid = $realsid ? $realsid : 0; 
@@ -108,7 +108,7 @@ class TableLinks extends CActiveRecord
 		
 		
 		
-		$d = $this->find("gid=:gid and sid=:sid and pid=:pid", array(':gid'=>$gid,':sid'=>$realsid,':pid'=>$pageType));
+		$d = $this->find("gid=:gid and sid=:sid and pid=:pid and uid=:uid", array(':gid'=>$gid,':sid'=>$realsid,':pid'=>$pageType,':uid'=>$uid));
 		if ($d){
 			
 			return array('url'=> $d->link,'linkid'=> $d->id);

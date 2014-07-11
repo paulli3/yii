@@ -27,9 +27,10 @@
 	<option value="0">--请选择区服--</option>
 </select></span>
 <br>
-输入首充密码： <input type="password" name="password" id="password"> (不知道请询问客服专员)<br>
+输入首充密码： <input type="password" name="password" id="password" style="border:1px solid #999"> (不知道请询问客服专员)<br>
 
-<a onclick="formclick();">tijiao</a>
+<button type="button" onclick="formclick();">确定</button>
+
 </form>
 </div>
 
