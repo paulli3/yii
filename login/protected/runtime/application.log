@@ -208,3 +208,11 @@ Stack trace:
 #2 D:\code\php\admin\yii\framework\base\CApplication.php(169): CConsoleApplication->processRequest()
 #3 D:\code\php\admin\yii\login\protected\commands\shell\crontab.php(19): CConsoleApplication->run()
 
+2014/07/21 17:27:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "s/s1"。' in D:\code\php\admin\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\code\php\admin\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('s/s1')
+#1 D:\code\php\admin\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\code\php\admin\yii\login\index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/s/s1
+---
